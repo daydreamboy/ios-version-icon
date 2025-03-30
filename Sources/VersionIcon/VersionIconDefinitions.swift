@@ -93,18 +93,27 @@ func getAppSetup(scriptSetup: ScriptSetup) throws -> AppSetup {
         guard
             let sourceRootPath = main.env["SRCROOT"],
             let projectDir = main.env["PROJECT_DIR"],
-            let infoPlistFile = main.env["INFOPLIST_FILE"]
+            var infoPlistFile = main.env["INFOPLIST_FILE"]
             else {
                 print("Missing environment variables")
                 throw ScriptError.moreInfoNeeded(message: "Missing required environment variables: SRCROOT, PROJECT_DIR, INFOPLIST_FILE. Please run script from Xcode script build phase.")
         }
     #endif
     
-    print("  sourceRootPath: \(sourceRootPath)")
-    print("  projectDir: \(projectDir)")
-    print("  infoPlistFile: \(infoPlistFile)")
+    print("[VersionIcon]sourceRootPath(SRCROOT): \(sourceRootPath)")
+    print("[VersionIcon]projectDir(PROJECT_DIR): \(projectDir)")
+    print("[VersionIcon]infoPlistFile(INFOPLIST_FILE): \(infoPlistFile)")
     
     let sourceFolder = try Folder(path: sourceRootPath)
+    
+#if DEBUGGING
+    for folder in sourceFolder.subfolders.recursive {
+        print("  lookup: \(folder.path)")
+        if folder.name == "\(scriptSetup.appIcon).appiconset" {
+            print("  test: \(folder.path)")
+        }
+    }
+#endif
 
     guard let appIconFolder = sourceFolder.findFirstFolder(name: "\(scriptSetup.appIcon).appiconset") else {
         throw ScriptError.folderNotFound(message: "\(scriptSetup.appIcon).appiconset - icon asset folder")
@@ -112,6 +121,11 @@ func getAppSetup(scriptSetup: ScriptSetup) throws -> AppSetup {
     
     guard let originalAppIconFolder = sourceFolder.findFirstFolder(name: "\(scriptSetup.appIconOriginal).appiconset") else {
         throw ScriptError.folderNotFound(message: "\(scriptSetup.appIconOriginal).appiconset - source icon asset for modifications")
+    }
+    
+    // Note: INFOPLIST_FILE env var maybe is a relative path, so make it absolute path
+    if !infoPlistFile.hasPrefix("/") {
+        infoPlistFile = projectDir.appendingPathComponent(path: infoPlistFile)
     }
     
     return AppSetup(
@@ -156,6 +170,9 @@ func getVersionText(appSetup: AppSetup, designStyle: DesignStyle) -> String {
     if buildNumber == "$(CURRENT_PROJECT_VERSION)" {
         buildNumber = main.env["CURRENT_PROJECT_VERSION"] ?? ""
     }
+    
+    print("[VersionIcon]versionNumber: \(versionNumber)")
+    print("[VersionIcon]buildNumber: \(buildNumber)")
     
     switch designStyle.versionStyle {
     case "dash":

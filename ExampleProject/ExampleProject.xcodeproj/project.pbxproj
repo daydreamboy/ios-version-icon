@@ -7,16 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F214F292D994BBD0004C638 /* Demo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F214F252D994BBD0004C638 /* Demo1ViewController.m */; };
+		4F214F2A2D994BBD0004C638 /* DemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F214F222D994BBD0004C638 /* DemoBaseViewController.m */; };
+		4F214F2B2D994BBD0004C638 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F214F282D994BBD0004C638 /* RootViewController.m */; };
 		4FD575212D97E4B200EDC6C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FD575152D97E4B200EDC6C1 /* Assets.xcassets */; };
 		4FD575232D97E4B200EDC6C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD575182D97E4B200EDC6C1 /* LaunchScreen.storyboard */; };
 		4FD575242D97E4B200EDC6C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5751B2D97E4B200EDC6C1 /* Main.storyboard */; };
 		4FD575252D97E4B200EDC6C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD575142D97E4B200EDC6C1 /* AppDelegate.m */; };
 		4FD575262D97E4B200EDC6C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD575192D97E4B200EDC6C1 /* main.m */; };
-		4FD575272D97E4B200EDC6C1 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5751D2D97E4B200EDC6C1 /* SceneDelegate.m */; };
-		4FD575282D97E4B200EDC6C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD5751F2D97E4B200EDC6C1 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F214F212D994BBD0004C638 /* DemoBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoBaseViewController.h; sourceTree = "<group>"; };
+		4F214F222D994BBD0004C638 /* DemoBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoBaseViewController.m; sourceTree = "<group>"; };
+		4F214F242D994BBD0004C638 /* Demo1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Demo1ViewController.h; sourceTree = "<group>"; };
+		4F214F252D994BBD0004C638 /* Demo1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Demo1ViewController.m; sourceTree = "<group>"; };
+		4F214F272D994BBD0004C638 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		4F214F282D994BBD0004C638 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FD574F62D97E4A600EDC6C1 /* ExampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD575132D97E4B200EDC6C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4FD575142D97E4B200EDC6C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -25,10 +32,6 @@
 		4FD575172D97E4B200EDC6C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FD575192D97E4B200EDC6C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4FD5751A2D97E4B200EDC6C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4FD5751C2D97E4B200EDC6C1 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		4FD5751D2D97E4B200EDC6C1 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		4FD5751E2D97E4B200EDC6C1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4FD5751F2D97E4B200EDC6C1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F214F232D994BBD0004C638 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4F214F212D994BBD0004C638 /* DemoBaseViewController.h */,
+				4F214F222D994BBD0004C638 /* DemoBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4F214F262D994BBD0004C638 /* AppTestDemos */ = {
+			isa = PBXGroup;
+			children = (
+				4F214F232D994BBD0004C638 /* Base */,
+				4F214F242D994BBD0004C638 /* Demo1ViewController.h */,
+				4F214F252D994BBD0004C638 /* Demo1ViewController.m */,
+			);
+			path = AppTestDemos;
+			sourceTree = "<group>";
+		};
 		4FD574ED2D97E4A600EDC6C1 = {
 			isa = PBXGroup;
 			children = (
@@ -61,17 +83,16 @@
 		4FD575202D97E4B200EDC6C1 /* ExampleProject */ = {
 			isa = PBXGroup;
 			children = (
+				4F214F262D994BBD0004C638 /* AppTestDemos */,
 				4FD575132D97E4B200EDC6C1 /* AppDelegate.h */,
 				4FD575142D97E4B200EDC6C1 /* AppDelegate.m */,
+				4F214F272D994BBD0004C638 /* RootViewController.h */,
+				4F214F282D994BBD0004C638 /* RootViewController.m */,
 				4FD575152D97E4B200EDC6C1 /* Assets.xcassets */,
 				4FD575162D97E4B200EDC6C1 /* Info.plist */,
 				4FD575182D97E4B200EDC6C1 /* LaunchScreen.storyboard */,
 				4FD575192D97E4B200EDC6C1 /* main.m */,
 				4FD5751B2D97E4B200EDC6C1 /* Main.storyboard */,
-				4FD5751C2D97E4B200EDC6C1 /* SceneDelegate.h */,
-				4FD5751D2D97E4B200EDC6C1 /* SceneDelegate.m */,
-				4FD5751E2D97E4B200EDC6C1 /* ViewController.h */,
-				4FD5751F2D97E4B200EDC6C1 /* ViewController.m */,
 			);
 			path = ExampleProject;
 			sourceTree = "<group>";
@@ -161,7 +182,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#bash \"${PROJECT_DIR}/vendor_version_icon/add_ribbon.sh\"\n\nset -e\nset -x\n\n# Step1: check arch for current MacOS\nif [ \"$(uname -m)\" = \"arm64\" ]; then\n    # Apple Silicon（M1/M2芯片）\n    COMMAND=\"${PROJECT_DIR}/vendor_version_icon/bin/arm64/VersionIcon\"\nelse\n    # Intel芯片\n    COMMAND=\"${PROJECT_DIR}/vendor_version_icon/bin/x86_64/VersionIcon\"\nfi\n\n# Step2: check if the script is running in Xcode\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    \"${COMMAND}\" --resources \"Pods/VersionIcon/Bin\" --original\nelse\n    #\"${COMMAND}\" --ribbon Blue-TopRight.png --title Devel-TopRight.png --resources \"Pods/VersionIcon/Bin\" --strokeWidth 0.07\n    \"${COMMAND}\" --resources \"resources\"\nfi\n";
+			shellScript = "bash \"${PROJECT_DIR}/run_script_version_icon/main.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -170,10 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F214F292D994BBD0004C638 /* Demo1ViewController.m in Sources */,
+				4F214F2A2D994BBD0004C638 /* DemoBaseViewController.m in Sources */,
+				4F214F2B2D994BBD0004C638 /* RootViewController.m in Sources */,
 				4FD575252D97E4B200EDC6C1 /* AppDelegate.m in Sources */,
 				4FD575262D97E4B200EDC6C1 /* main.m in Sources */,
-				4FD575272D97E4B200EDC6C1 /* SceneDelegate.m in Sources */,
-				4FD575282D97E4B200EDC6C1 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +229,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -235,7 +256,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ExampleProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

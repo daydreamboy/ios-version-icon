@@ -132,6 +132,9 @@ do {
     if let unwrappedTitle = title.value, unwrappedTitle.lastPathComponent == unwrappedTitle {
         title.value = resourcesPath.appendingPathComponent(path: "Titles/\(unwrappedTitle)")
     }
+    
+    print("ribbon: \(String(describing: ribbon.value))")
+    print("title: \(String(describing: title.value))")
 
     guard let convertedTitleSizeRatio = Double(titleSizeRatio.value) else { throw ScriptError.argumentError(message: "Invalid titlesize argument") }
     guard let convertedHorizontalTitlePosition = Double(horizontalTitlePositionRatio.value) else { throw ScriptError.argumentError(message: "Invalid horizontalTitlePosition argument") }
