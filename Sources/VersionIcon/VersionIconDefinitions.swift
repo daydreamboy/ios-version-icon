@@ -84,9 +84,18 @@ struct ImageInfo: Codable {
 /// Getting information about the app with modified icon
 func getAppSetup(scriptSetup: ScriptSetup) throws -> AppSetup {
     #if DEBUGGING
-        let sourceRootPath = "/Users/danielcech/Documents/ios-project-template"
-        let projectDir = "/Users/danielcech/Documents/ios-project-template"
-        let infoPlistFile = "Example/Application/Info.plist"
+//        let sourceRootPath = "/Users/danielcech/Documents/ios-project-template"
+//        let projectDir = "/Users/danielcech/Documents/ios-project-template"
+//        var infoPlistFile = "Example/Application/Info.plist"
+    
+        guard
+            let sourceRootPath = main.env["SRCROOT"],
+            let projectDir = main.env["PROJECT_DIR"],
+            var infoPlistFile = main.env["INFOPLIST_FILE"]
+            else {
+                print("Missing environment variables")
+                throw ScriptError.moreInfoNeeded(message: "Missing required environment variables: SRCROOT, PROJECT_DIR, INFOPLIST_FILE. Please run script from Xcode script build phase.")
+        }
     #else
         guard
             let sourceRootPath = main.env["SRCROOT"],
