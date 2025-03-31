@@ -28,6 +28,10 @@
 
 ### (1) Run Script集成
 
+![](images/01_add_run_script_before_Compile_Sources.png)
+
+
+
 ```shell
 bash "${PROJECT_DIR}/run_script_version_icon/main.sh"
 ```
@@ -36,7 +40,23 @@ bash "${PROJECT_DIR}/run_script_version_icon/main.sh"
 
 ### (2) CocoaPod集成
 
+#### Podfile
 
+```
+pod 'VersionIcon', '~> 1.0.8'
+```
+
+
+
+#### Build Phase
+
+```shell
+if [ "${CONFIGURATION}" = "Release" ]; then
+    "Pods/VersionIcon/Bin/VersionIcon" --resources "Pods/VersionIcon/Bin" --original
+else
+    "Pods/VersionIcon/Bin/VersionIcon"  --ribbon Blue-TopRight.png --title Devel-TopRight.png --resources "Pods/VersionIcon/Bin" --strokeWidth 0.07
+fi
+```
 
 
 

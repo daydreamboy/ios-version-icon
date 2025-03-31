@@ -104,10 +104,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FD5750E2D97E4AA00EDC6C1 /* Build configuration list for PBXNativeTarget "ExampleProject" */;
 			buildPhases = (
+				4FD575292D97E92C00EDC6C1 /* Run Script "main.sh" */,
 				4FD574F22D97E4A600EDC6C1 /* Sources */,
 				4FD574F32D97E4A600EDC6C1 /* Frameworks */,
 				4FD574F42D97E4A600EDC6C1 /* Resources */,
-				4FD575292D97E92C00EDC6C1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -167,8 +167,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4FD575292D97E92C00EDC6C1 /* ShellScript */ = {
+		4FD575292D97E92C00EDC6C1 /* Run Script "main.sh" */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -176,6 +177,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script \"main.sh\"";
 			outputFileListPaths = (
 			);
 			outputPaths = (
