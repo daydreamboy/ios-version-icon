@@ -32,6 +32,7 @@ struct ScriptSetup {
     var appIcon: String
     var appIconOriginal: String
     var resourcesPath: String
+    var infoPlistFilePath: String?
 }
 
 /// Information about the modified app
@@ -100,7 +101,7 @@ func getAppSetup(scriptSetup: ScriptSetup) throws -> AppSetup {
         guard
             let sourceRootPath = main.env["SRCROOT"],
             let projectDir = main.env["PROJECT_DIR"],
-            var infoPlistFile = main.env["INFOPLIST_FILE"]
+            var infoPlistFile = (scriptSetup.infoPlistFilePath != nil) ? scriptSetup.infoPlistFilePath : main.env["INFOPLIST_FILE"]
             else {
                 print("Missing environment variables")
                 throw ScriptError.moreInfoNeeded(message: "Missing required environment variables: SRCROOT, PROJECT_DIR, INFOPLIST_FILE. Please run script from Xcode script build phase.")

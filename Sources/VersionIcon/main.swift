@@ -57,6 +57,9 @@ let versionStyle = moderator.add(Argument<String?>
 
 // AppSetup elements
 
+let infoPlistFilePath = moderator.add(Argument<String?>
+    .optionWithValue("infoplist", name: "info plist path", description: "Specify the info plist file. Default is the project run this command"))
+
 let resourcesPath = moderator.add(Argument<String?>
     .optionWithValue("resources", name: "VersionIcon resources path", description: "Default path where Ribbons and Titles folders are located. It is not necessary to set when script is executed as a build phase in Xcode"))
 
@@ -78,7 +81,7 @@ do {
         throw ScriptError.argumentError(message: "You must specify the resources path using --resourcesPath parameter")
     }
 
-    let scriptSetup = ScriptSetup(appIcon: appIcon.value, appIconOriginal: appIconOriginal.value, resourcesPath: resourcesPath)
+    let scriptSetup = ScriptSetup(appIcon: appIcon.value, appIconOriginal: appIconOriginal.value, resourcesPath: resourcesPath, infoPlistFilePath: infoPlistFilePath.value)
     let appSetup = try getAppSetup(scriptSetup: scriptSetup)
 
     guard !original.value else {
@@ -140,7 +143,10 @@ do {
     guard let convertedHorizontalTitlePosition = Double(horizontalTitlePositionRatio.value) else { throw ScriptError.argumentError(message: "Invalid horizontalTitlePosition argument") }
     guard let convertedVerticalTitlePosition = Double(verticalTitlePositionRatio.value) else { throw ScriptError.argumentError(message: "Invalid verticalTitlePosition argument") }
     guard titleAlignment.value == "left" || titleAlignment.value == "center" || titleAlignment.value == "right" else { throw ScriptError.argumentError(message: "Invalid titleAlignment argument") }
-    guard versionStyle.value == "dash" || versionStyle.value == "parenthesis" || versionStyle.value == "versionOnly" || versionStyle.value == "buildOnly" else { throw ScriptError.argumentError(message: "Invalid versionStyle argument") }
+    guard versionStyle.value == "dash" || versionStyle.value == "parenthesis" || versionStyle.value == "versionOnly" || versionStyle.value == "buildOnly" || versionStyle.value == "none"
+    else {
+        throw ScriptError.argumentError(message: "Invalid versionStyle argument")
+    }
     guard let convertedTitleFillColor = NSColor(hexString: titleFillColor.value) else { throw ScriptError.argumentError(message: "Invalid fillcolor argument") }
     guard let convertedTitleStrokeColor = NSColor(hexString: titleStrokeColor.value) else { throw ScriptError.argumentError(message: "Invalid strokecolor argument") }
     guard let convertedTitleStrokeWidth = Double(titleStrokeWidth.value) else { throw ScriptError.argumentError(message: "Invalid strokewidth argument") }
