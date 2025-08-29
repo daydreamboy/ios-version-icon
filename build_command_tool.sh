@@ -1,4 +1,9 @@
-#! /bin/bash
+#!/usr/bin/env bash
+
+## Usage:
+# $ ./build_command_tool.sh
+# $ ./build_command_tool.sh --arch arm64
+# $ ./build_command_tool.sh --arch x86_64
 
 log_success() {
   local GREEN="\033[0;32m"
@@ -12,8 +17,33 @@ log_failure() {
   printf "${RED}%s${NORMAL}\n" "$@" >&2
 }
 
-# Step1: check arch for current MacOS
-if [ "$(uname -m)" = "arm64" ]; then
+# Step0: parse command line arguments
+ARG_ARCH=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --arch)
+      if [[ "$2" == "arm64" || "$2" == "x86_64" ]]; then
+        ARG_ARCH="$2"
+        shift 2
+      else
+        log_failure "Invalid architecture: $2. Use --arch arm64 or --arch x86_64"
+        exit 1
+      fi
+      ;;
+    *)
+      log_failure "Unknown option: $1. Use --arch arm64 or --arch x86_64"
+      exit 1
+      ;;
+  esac
+done
+
+# Step2: if not specified, use uname -m to detect
+if [[ -z "$ARCH" ]]; then
+    ARG_ARCH="$(uname -m)"
+fi
+
+# Step3: choose expected arch for build
+if [ "$ARG_ARCH" = "arm64" ]; then
     # Apple Silicon（M1/M2芯片）
     ARCH="arm64-apple-macosx"
     ARCH_PREFIX="arm64"
@@ -23,10 +53,10 @@ else
     ARCH_PREFIX="x86_64"
 fi
 
-# Step2: build Swift package project
+# Step4: build Swift package project
 swift build
 
-# Step3: copy binary file to Bin directory
+# Step5: copy binary file to Bin directory
 FILE_NAME="VersionIcon"
 SRC_FOLDER=".build/${ARCH}/debug"
 DEST_FOLDER="Bin/${ARCH}"
