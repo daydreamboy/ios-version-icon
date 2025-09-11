@@ -24,6 +24,7 @@ while [[ $# -gt 0 ]]; do
     --arch)
       if [[ "$2" == "arm64" || "$2" == "x86_64" ]]; then
         ARG_ARCH="$2"
+        # Remove 2 elements from $#, which is $1 and $2
         shift 2
       else
         log_failure "Invalid architecture: $2. Use --arch arm64 or --arch x86_64"
