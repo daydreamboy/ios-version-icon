@@ -39,7 +39,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Step2: if not specified, use uname -m to detect
-if [[ -z "$ARCH" ]]; then
+if [[ -z "$ARG_ARCH" ]]; then
     ARG_ARCH="$(uname -m)"
 fi
 
