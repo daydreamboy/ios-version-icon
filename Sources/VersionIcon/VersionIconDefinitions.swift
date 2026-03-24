@@ -190,6 +190,8 @@ func getVersionText(appSetup: AppSetup, designStyle: DesignStyle) -> String {
         return "\(versionNumber)"
     case "buildOnly":
         return "\(buildNumber)"
+    case "none":
+        return ""
     default:
         return ""
     }
